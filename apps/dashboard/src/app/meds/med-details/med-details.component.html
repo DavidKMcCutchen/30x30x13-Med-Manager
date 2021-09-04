@@ -1,0 +1,106 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        <span *ngIf="currentMed.id; else elseBlock">{{
+          originalTitle
+        }}</span>
+        <ng-template #elseBlock>Create a Medication Profile</ng-template>
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="save(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+      </mat-form-field>
+
+      
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+          <mat-label>Generic Name</mat-label>
+          <input
+            matInput
+            placeholder="Generic Name"
+            formControlName="genericName"
+            type="text"
+            name="genericName"
+          />
+        </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Dosage</mat-label>
+        <input
+          matInput
+          placeholder="Dosage"
+          formControlName="dosage"
+          type="text"
+          name="dosage"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Half-Life</mat-label>
+        <input
+          matInput
+          placeholder="Half-Life"
+          formControlName="halfLife"
+          type="text"
+          name="halfLife"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Indication</mat-label>
+        <input
+          matInput
+          placeholder="Indication"
+          formControlName="indication"
+          type="text"
+          name="indication"
+        />
+      </mat-form-field>
+
+      <section class="full-width">
+        <mat-label>
+          Stock:
+          {{ this.form.get('stock')?.value }} Pills/Capsules/Units
+        </mat-label>
+
+        <mat-slider
+          class="full-width"
+          formControlName="stock"
+          min="0"
+          max="1000"
+          thumbLabel
+          name="stock"
+        ></mat-slider>
+      </section>
+
+      <section>
+          <mat-checkbox formControlName="rx" placeholder="Rx"
+            >Requires Prescription?</mat-checkbox
+          >
+        </section>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-button color="primary">
+        {{ originalTitle ? 'Save' : 'Create' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

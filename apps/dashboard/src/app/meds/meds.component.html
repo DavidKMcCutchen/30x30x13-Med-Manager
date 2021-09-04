@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="col-50" layout="row" layout-align="center center">
+      <med-manager-med-list
+        [meds]="allMeds$ | async"
+        (selected)="selectMed($event)"
+        (deleted)="deleteMed($event)"
+        (medViewed)="viewMed($event)"
+      ></med-manager-med-list>
+    </div>
+    <div class="col-50" layout="row" layout-align="center center">
+      <med-manager-med-details
+        [med]="selectedMed$ | async"
+        (saved)="saveMed($event)"
+        (cancelled)="resetMed()"
+        [form]="form"
+      ></med-manager-med-details>
+    </div>
+  </div>

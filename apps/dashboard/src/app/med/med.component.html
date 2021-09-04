@@ -1,0 +1,8 @@
+
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+<div *ngIf="currentMed$ | async as med">
+  <med-manager-med-info [med]="currentMed$ | async"></med-manager-med-info>
+</div>
+</div>
+</div>

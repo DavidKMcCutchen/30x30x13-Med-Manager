@@ -1,0 +1,14 @@
+{
+  "meds": [
+    {
+      "id": 1,
+      "name": "ModAlert",
+      "genericName": "Modafinil",
+      "dosage": "200mg",
+      "halfLife": "18 Hours",
+      "indication": "Shift Work Disorder",
+      "stock": "1000",
+      "rx": true
+    }
+  ]
+}
